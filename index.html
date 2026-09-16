@@ -11,8 +11,6 @@
 
     <header class="hero">
         <nav class="navbar">
-            <a href="#" class="logo">Stav.</a>
-
             <div class="nav-links">
                 <a href="#about">About</a>
                 <a href="#skills">Skills</a>
@@ -21,7 +19,7 @@
             </div>
         </nav>
         <div class="hero-content">
-            <p class="intro"> Hi, I'm </p>
+            <p class="intro">Hello, I'm</p>
             <h1>Stav</h1>
             <h2>Computer Science Student</h2>
 
@@ -30,23 +28,30 @@
             </p>
 
         <div class="social-links">
-            <a href="https://github.com/Stavfrozen" target="_blank">GitHub</a>
-            <a href="https://www.linkedin.com/in/stav-frozenfar-354305306" target="_blank">LinkedIn</a>
+            <a href="https://github.com/Stavfrozen" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/stav-frozenfar-354305306" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
+    </div>
+
+    <div class="hero-image">
+        <img src="images/profile.jpeg" alt="Portrait of Stav">
     </div>
     </header>
 
     <main>
         <section id="about" class="about">
-            <h2>About Me</h2>
+            <p class="section-label">ABOUT ME</p>
+            <h2>A little about me</h2>
 
-            <p>
-                I'm a Computer Science student with experience in leadership, operations, and working in fast-paced technological environments. My experience has strengthened my ability to solve problems, manage multiple priorities, communicate effectively, and adapt quickly to new challenges.
-            </p>
-
-            <p>
-                I'm currently expanding my technical skills through my studies and personal projects, with a growing interest in software development and building practical solutions.
-            </p>
+            <div class="about-content">
+                <p>
+                    I'm a Computer Science student with experience in leadership, operations, and working in fast-paced technological environments.
+                </p>
+                
+                <p>
+                    I enjoy solving problems, learning new technologies, and turning ideas into practical solutions. Alongside my studies, I've developed strong skills in managing multiple priorities, working with different teams, and adapting quickly to new challenges.
+                </p>
+            </div>
         </section>
         
         <section id="skills" class="skills">
@@ -63,11 +68,16 @@
         </section>
 
         <section id="projects" class="projects">
+            <p class="section-label">MY WORK</p> 
+
             <h2>Projects</h2>
 
-            <div class="project-card">
-                <h3>personal Portfolio</h3>
-                <p>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-top">
+                    <span class="project-number">01</span>
+                    <h3>Personal Portfolio</h3>
+                </div>                <p>
                     A responsive personal portfolio website built to showcase my background, technical skills, and projects.
                 </p>
 
@@ -78,8 +88,9 @@
                     <span>GitHub</span>
                 </div>
 
-                <a href="https://github.com/Stavfrozen/personal-portfolio" class="project-link" target="_blank">                    View on GitHub ↗
+                <a href="https://github.com/Stavfrozen/personal-portfolio" class="project-link" target="_blank" rel="noopener noreferrer">                     View on GitHub ↗
                 </a>
+                </div>
             </div>
         </section>
 
@@ -93,9 +104,14 @@
 
             <div class="contact-links">
                 <a href="mailto:8stav8@gmail.com">Email me ↗</a>
-                <a href="https://www.linkedin.com/in/stav-frozenfar-354305306" target="_blank">LinkedIn ↗</a>            </div>
+                <a href="https://www.linkedin.com/in/stav-frozenfar-354305306" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>            </div>
         </section>
     </main>
+
+    <footer class="footer">
+        <p>Designed & built by Stav.</p>
+        <p class="footer-code">&lt;/portfolio&gt;</p>
+    </footer>
     
 
 </body>
