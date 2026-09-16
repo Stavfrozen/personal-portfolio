@@ -407,17 +407,50 @@ body {
     gap: 25px;
 }
 
-.contact-links a {
+.contact-item {
+    position: relative;
     color: var(--text);
     text-decoration: none;
     font-weight: 600;
     border-bottom: 1px solid var(--text);
     padding-bottom: 3px;
+    cursor: pointer;
     transition: color 0.2s ease;
 }
 
-.contact-links a:hover {
+.contact-item:hover {
     color: var(--accent);
+}
+
+.contact-tooltip {
+    position: absolute;
+    left: 50%;
+    bottom: 35px;
+
+    transform: translateX(-50%) translateY(5px);
+
+    background: var(--text);
+    color: white;
+
+    padding: 7px 12px;
+    border-radius: 6px;
+
+    font-size: 0.85rem;
+    font-weight: 400;
+    white-space: nowrap;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.2s ease;
+
+    z-index: 10;
+}
+
+.contact-item:hover .contact-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
 }
 
 
@@ -578,4 +611,236 @@ body {
         align-items: flex-start;
         gap: 8px;
     }
+
+    .contact-links {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 22px;
+    }
+    
+    .contact-item {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .contact-tooltip {
+        position: static;
+        transform: none;
+    
+        opacity: 1;
+        visibility: visible;
+    
+        margin-top: 5px;
+        padding: 0;
+    
+        background: transparent;
+        color: var(--muted);
+    
+        font-size: 0.8rem;
+    }
+    
+    .contact-item:hover .contact-tooltip {
+        transform: none;
+    }
+
+    .phone-number {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        display: block;
+    }
+}
+
+/* ---------- Phone Tooltip ---------- */
+
+.phone-link {
+    position: relative;
+    font-weight: 600;
+    border-bottom: 1px solid var(--text);
+    padding-bottom: 3px;
+    cursor: default;
+}
+
+.phone-tooltip {
+    position: absolute;
+    left: 50%;
+    bottom: 35px;
+    transform: translateX(-50%);
+
+    background: var(--text);
+    color: white;
+
+    padding: 7px 12px;
+    border-radius: 6px;
+
+    font-size: 0.85rem;
+    white-space: nowrap;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(5px);
+
+    transition: 0.2s ease;
+}
+
+.phone-link:hover .phone-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* ---------- Mobile Contact Fix ---------- */
+
+@media (max-width: 560px) {
+
+    .phone-link {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .phone-tooltip {
+        position: static;
+        transform: none;
+
+        opacity: 1;
+        visibility: visible;
+
+        margin-top: 5px;
+        padding: 0;
+
+        background: transparent;
+        color: var(--muted);
+
+        font-size: 0.8rem;
+    }
+
+    .phone-link:hover .phone-tooltip {
+        transform: none;
+    }
+}
+
+/* ---------- Theme Toggle ---------- */
+
+.theme-checkbox {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.theme-toggle {
+    width: 36px;
+    height: 36px;
+    margin-left: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--border);
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.8);
+    color: var(--text);
+
+    font-size: 1rem;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        background-color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+}
+
+.theme-toggle .sun {
+    display: none;
+}
+
+.theme-toggle .moon {
+    display: block;
+}
+
+/* ---------- Dark Mode - HTML & CSS Only ---------- */
+
+body:has(#theme-toggle:checked) {
+    background-color: #0f0f14;
+    color: #f2f2f2;
+}
+
+body:has(#theme-toggle:checked) .hero {
+    background-color: #0f0f14;
+
+    background-image:
+        linear-gradient(rgba(139, 140, 255, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(139, 140, 255, 0.06) 1px, transparent 1px);
+}
+
+body:has(#theme-toggle:checked) .hero h1 {
+    background: linear-gradient(
+        90deg,
+        #ffffff 0%,
+        #b8b8ff 55%,
+        var(--accent-light) 100%
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+body:has(#theme-toggle:checked) .nav-links a,
+body:has(#theme-toggle:checked) .social-links a,
+body:has(#theme-toggle:checked) .project-link,
+body:has(#theme-toggle:checked) .contact-item,
+body:has(#theme-toggle:checked) .phone-link {
+    color: #f2f2f2;
+}
+
+body:has(#theme-toggle:checked) .social-links a {
+    border-color: #f2f2f2;
+}
+
+body:has(#theme-toggle:checked) .skills-list span,
+body:has(#theme-toggle:checked) .project-tech span {
+    background: #181820;
+    border-color: #30303d;
+}
+
+body:has(#theme-toggle:checked) .project-card {
+    background: #15151c;
+    border-color: #30303d;
+}
+
+body:has(#theme-toggle:checked) .contact-item,
+body:has(#theme-toggle:checked) .phone-link {
+    border-bottom-color: #f2f2f2;
+}
+
+body:has(#theme-toggle:checked) .footer {
+    border-top-color: #292933;
+    color: #aaaaaf;
+}
+
+body:has(#theme-toggle:checked) .theme-toggle {
+    background: #181820;
+    color: #ffffff;
+    border-color: #353542;
+}
+
+/* Change moon to sun */
+
+body:has(#theme-toggle:checked) .theme-toggle .moon {
+    display: none;
+}
+
+body:has(#theme-toggle:checked) .theme-toggle .sun {
+    display: block;
 }
