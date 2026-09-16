@@ -35,15 +35,22 @@ body {
 /* ---------- Navigation ---------- */
 
 .navbar {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 30px 10%;
+    padding: 20px 10%;
+
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    z-index: 10;
+
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+    z-index: 1000;
 }
 
 .logo {
@@ -768,7 +775,7 @@ body {
     display: block;
 }
 
-/* ---------- Dark Mode - HTML & CSS Only ---------- */
+/* ---------- Dark Mode ---------- */
 
 body:has(#theme-toggle:checked) {
     background-color: #0f0f14;
@@ -833,6 +840,11 @@ body:has(#theme-toggle:checked) .theme-toggle {
     background: #181820;
     color: #ffffff;
     border-color: #353542;
+}
+
+body:has(#theme-toggle:checked) .navbar {
+    background: rgba(15, 15, 20, 0.9);
+    border-bottom-color: #292933;
 }
 
 /* Change moon to sun */
